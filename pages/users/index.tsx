@@ -28,7 +28,6 @@ export const getServerSideProps: GetServerSideProps<props> = async (_context) =>
 			.find({})
 			.map(({ _id, ...d }) => ({ id: _id.toString(), ...d }))
 			.toArray()) as User[];
-		console.log(users);
 		return {
 			props: { users }
 		};
