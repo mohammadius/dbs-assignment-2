@@ -1,4 +1,3 @@
-import type { ObjectId } from "mongodb";
 import type { Gender } from "models";
 
 export class User {
@@ -9,6 +8,6 @@ export class User {
 		public address: string,
 		public phoneNumber: string,
 		public gender: Gender,
-		public id?: ObjectId
+		public id?: string
 	) {}
 }

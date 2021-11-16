@@ -23,7 +23,12 @@ export const getServerSideProps: GetServerSideProps<props> = async (_context) =>
 	try {
 		const client = await clientPromise;
 		const db = client.db();
-		const users = (await db.collection("users").find({}).toArray()) as User[];
+		const users = (await db
+			.collection("users")
+			.find({})
+			.map(({ _id, ...d }) => ({ id: _id.toString(), ...d }))
+			.toArray()) as User[];
+		console.log(users);
 		return {
 			props: { users }
 		};
